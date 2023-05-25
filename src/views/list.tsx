@@ -23,13 +23,15 @@ const TodoList: React.FC = () => {
     return (
         <div>
             <h2>Todo List</h2>
-            <input type="text" value={inputValue} onChange={handleInputChange} />
-            <button onClick={handleAddTodo}>Add</button>
-            <ul>
+            <input data-testid="input-add-todo" type="text" value={inputValue} onChange={handleInputChange} />
+            <button data-testid="bouton-add-todo" onClick={handleAddTodo}>Add</button>
+            <ul data-testid="ul-todo">
                 {todos.map((todo, index) => (
                     <li key={index}>
-                        {todo}{' '}
-                        <button onClick={() => handleDeleteTodo(index)}>Delete</button>
+                        <span data-testid="todo">
+                            {todo}{' '}
+                        </span>
+                        <button data-testid="delete-todo" onClick={() => handleDeleteTodo(index)}>Delete</button>
                     </li>
                 ))}
             </ul>
